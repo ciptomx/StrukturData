@@ -21,3 +21,6 @@ Ringkasan Materi :
 14.	UAS
 
 Praktikum Mata Kuliah ini menggunakan bahasa ***Python***
+
+
+#2021
