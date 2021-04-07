@@ -48,33 +48,78 @@ for kunci, nilai in mahasiswa.items():
   print(nilai)
 
 #CLASS
+#CLASS
 class mobil:
-  warna = 'Hitam'
-  transmisi = 'MT'
-  gigi = 'N'
+    warna = 'Hitam'
+    transmisi = 'Automatic'
+    posisi_gigi = 'D'
 
-def __init__(self, transmisi):
-  self.transmisi = transmisi
-  print('Mobil Siap !')
 
-def supir(self):
-  self.gigi = 'D'
-  print('Jalankan')
+    def __init__(self, transmisi): #Constructor
+        self.transmisi = transmisi
+        print('Mobil Siap !')
 
-def mundur(self):
-  self.gigi = 'N'
-  print('Mundur.. Perhatikan bagian belakang mobil')
 
-def gantigigi(self, gigi = 'N'):
-  self.gigi = gigi
-  print('Posisi Gigi : ' + self.gigi)
+    def maju(self):
+        self.posisi_gigi = 'D'
+        print('Jalankan')
 
-def ambilgigi(self):
-  return self.gigi
 
-  mobil1 = mobil('MT')
-  mobil1.gantigigi('D')
+    def mundur(self):
+        self.posisi_gigi = 'R'
+        print('Mundur.. Perhatikan bagian belakang mobil')
 
-  mobil2 = mobil('AT')
-  gigi = mobil2.ambilgigi()
-  print(gigi) 
+
+    def gantigigi(self, gigi='D'):
+        self.posisi_gigi = gigi
+        print('Posisi Gigi : ' + self.posisi_gigi)
+
+
+    def ambil_posisigigi(self):
+        return self.posisi_gigi
+
+mobil1 = mobil('Manual')
+mobil1.gantigigi('D-1')
+
+mobil2 = mobil('Automatic')
+posisi_gigi = mobil2.ambil_posisigigi()
+print(posisi_gigi)
+
+Tesla = mobil('Automatic')
+
+#Inheritance
+class Tesla(Car):
+    pass   # use 'pass' keyword to define class only
+
+tesla = Tesla()
+tesla.drive()
+
+#Overriding
+class Tesla2(mobil):
+  def maju(self):
+      super().maju()
+      print('Gasss !!')
+
+#Private Attribute/Function
+__nomor_seri = '1231234'
+
+def __ambil_nomor_seri(self):
+  return self.__nomor_seri
+
+#Polimorphism
+class Oto:
+  def bbm(self):
+      return 'Bensin'
+
+class Honda(Oto):
+  pass
+
+class Tesla(Oto):
+  def bbm(self):
+    return 'Listrik'
+
+def cek_bbm(oto):
+  print(oto.bbm())
+
+cek_bbm(Tesla())
+cek_bbm(Honda())
